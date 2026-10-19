@@ -36,13 +36,12 @@ def display_menu(output_func=print):
         10. Add Follow-Up Note
         11. View Ticket Notes
         12. Search Tickets
-        13. Sorted Search Results
+    
 
       [ Insights & Quality ]
         6.  Work Queue Overview
         7.  Standard Reports
-        14. Enhanced Reports
-        15. Engineering Understanding Check
+        13. Engineering Understanding Check
 
       [ System ]
         9.  Exit
@@ -161,7 +160,7 @@ def main(input_func=input, output_func=print, storage_path=None):
                     for ticket in results:
                         output_func(f"{ticket['id']} | {ticket['title']} | {ticket['status']} | {ticket['priority']}")
 
-            elif choice == "13":
+            elif choice == "15":
                 title_query = input_func("Title contains (blank for any): ").strip()
                 category = input_func("Category (blank for any): ").strip()
                 while category and category.casefold() not in {"network", "hardware", "software", "other"}:
@@ -186,7 +185,7 @@ def main(input_func=input, output_func=print, storage_path=None):
                 report = build_report(tickets)
                 output_func(format_report(report))
 
-            elif choice == "15":
+            elif choice == "13":
                 run_check(QUESTION_BANK, input_func, output_func, "learning_notes.txt")
 
             else:
